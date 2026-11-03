@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>28.10.26</title>
+    <style>
+    body{
+        background-color: white;
+    }
+        .buy-btn{
+            background-color: lightgreen;
+            border: none;
+            padding: 4px 8px;
+            margin-left: 8px;
+        }
+        #product-item{
+            margin: 8px;
+        }
+        .cart-item{
+            margin: 8px;
+        }
+        .cart-item > button{
+            background-color: lightcoral;
+            color: white;
+            margin-left: 8px;
+            padding: 4px 8px;
+            border: none;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+        <!-- Sekcja sterowania -->
+          <header>
+            <input type="text" id="search-input" placeholder="Szukaj produktu...">
+            <button id="search-btn">Szukaj</button>
+           
+            <div id="filters">
+              <button class="filter-btn" id="btn-all">Wszystko</button>
+              <button class="filter-btn" data-category="Elektronika">IT</button>
+              <button class="filter-btn" data-category="Spozywcze">Jedzenie</button>
+            </div>
+          </header>
+        
+          <main style="display: flex; gap: 40px; margin-top: 20px;">
+            <!-- Lista produktów -->
+            <div id="shop" style="flex: 2;">
+              <h2>Produkty</h2>
+              <div id="product-list">
+              </div>
+            </div>
+        
+            <!-- Koszyk -->
+            <div id="cart-section" style="flex: 1; border-left: 2px solid #ccc; padding-left: 20px;">
+              <h2>Koszyk</h2>
+              <div id="cart-list"></div>
+              <h3>Suma: <span id="cart-total">0</span> PLN</h3>
+              <btn id="clear-cart-btn" style="background-color: red; color: white; border:none; padding: 4px 8px; font-weight: 700;">Wyczysc kosz</btn>
+            </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
