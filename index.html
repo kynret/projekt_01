@@ -56,10 +56,16 @@
             <div id="cart-section" style="flex: 1; border-left: 2px solid #ccc; padding-left: 20px;">
               <h2>Koszyk</h2>
               <div id="cart-list"></div>
-              <h3>Suma: <span id="cart-total">0</span> PLN</h3>
               <btn id="clear-cart-btn" style="background-color: red; color: white; border:none; padding: 4px 8px; font-weight: 700;">Wyczysc kosz</btn>
+
+              <div id="discount-box" style="padding-top: 16px;">
+                <input type="text" id="discount-input" placeholder="Kod rabatowy">
+                <button id="discount-btn">Zastosuj</button>
+                <p id="discount-message"></p>
+              </div>
+              <p>Rabat: <span id="cart-discount">0</span> PLN</p>
+              <h3>Do zapłaty: <span id="cart-total">0</span> PLN</h3>
             </div>
-    </div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
