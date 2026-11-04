@@ -278,7 +278,7 @@ async function loadStoreData(){
 
     const result = await response.json()
     products = [...products, ...result]
-    categories = ['all', ...new Set(result.map((el)=>el.category))]
+    categories = ['all', ...new Set(result.map((el)=>el.category).sort())]
     statusMsgEl.innerHTML=''
     displayProducts();
     displayCategories()
@@ -326,11 +326,13 @@ function displayProducts() {
   for (const product of getFilteredProducts()) {
     const productEl = document.createElement('div');
     productEl.classList.add('product-item');
-    productEl.innerHTML = `Nazwa: ${product.title}<br> Cena: ${product.price}  PLN <br> Rating: ${product.rating.rate} ⭐  / ${product.rating.count} 👥 <br>`;
     
     const productImgEl = document.createElement('img')
     productImgEl.src = product.image
     productImgEl.alt = product.title
+
+    const productInfoEl = document.createElement('p')
+    productInfoEl.innerHTML = `Nazwa: ${product.title}<br> Cena: ${product.price}  PLN <br> Rating: ${product.rating.rate} ⭐  / ${product.rating.count} 👥 <br>`;
 
     const buyBtnEl = document.createElement('button');
     buyBtnEl.textContent = 'Kup';
@@ -338,6 +340,7 @@ function displayProducts() {
     buyBtnEl.dataset.id = product.id;
 
     productEl.appendChild(productImgEl)
+    productEl.appendChild(productInfoEl)
     productEl.appendChild(buyBtnEl);
     productListEl.appendChild(productEl);
   }
